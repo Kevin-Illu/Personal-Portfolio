@@ -1,0 +1,29 @@
+$phon: '468px';
+$tablet: '768px';
+$computer: '1024px';
+
+@function mn($mn){
+    @if $mn == m {
+        @return max-width
+    } @else if $mn == n {
+        @return min-width
+    }
+}
+
+
+@mixin phone($medida){
+    @media (mn($medida): $phon){
+        @content;
+    }
+}
+@mixin tablet($medida){
+    @media (mn($medida): $tablet){
+        @content;
+    }
+}
+@mixin laptop($medida){
+    @media (mn($medida): $computer){
+        @content;
+    }
+}
+

@@ -1,0 +1,142 @@
+@use 'base/mixins' as m;
+@use 'base/global' as c;
+
+.header{
+    .container{
+        @include m.laptop(n){
+            flex-direction: row-reverse;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6rem 0 0;
+        }
+        padding: 4rem 0 0;
+    }
+
+}
+
+.navegation{
+    @media (max-width: 1024px){
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    width: 15%;
+    text-align: end;
+
+    .menu{
+        display: none;
+        row-gap: 1rem;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        @include m.laptop(n){
+            display: flex;
+        }
+
+        .theme{
+            margin: 0 0 0 .6rem;
+            width: fit-content;
+            border: none;
+            // background-color: green;
+            background-color: c.$gray;
+            border-radius: 50%;
+            padding: .2rem;
+
+            .light{
+                display: none;
+            }
+        }
+    }
+
+
+    .nav_top{
+        .date{
+            display: none;
+            @include m.laptop(n){
+                display: inline-block;
+            }
+        }
+        @include m.laptop(m){
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 2rem;
+        }
+
+        .container_items{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .date{
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+
+        .logo{
+            @include m.laptop(n){
+                display: none;
+            }
+            font-weight: 900;
+            font-size: 2rem;
+        }
+
+
+    }
+    .btn_nav{
+        .close{
+            display: none
+        }
+        @include m.laptop(n){
+            display: none;
+        }
+    }
+}
+
+.hero{
+    position: relative;
+    h1,h2{
+        font-weight: 900;
+    }
+    h5{
+        font-weight: 400;
+        @include m.tablet(n){
+            position: absolute;
+            top: -1rem;
+        }
+    }
+    p{
+        margin: 0;
+        position: relative;
+        top: -1rem;
+        text-align: end;
+    }
+    @include m.tablet(n){
+        h1{
+            font-size: 10rem;
+            margin-top: 1rem;
+        }
+        h2{
+            font-size: 10rem;
+        }
+
+    }
+}
+
+@include m.tablet(m){
+    .presentation{
+        padding-top: 4rem;
+    }
+}
+
+
+.me_img{
+    height: 50rem;
+    width: 100%;
+    background-image: url(../images/i_programmer.jpg);
+    background-size: cover;
+}
+

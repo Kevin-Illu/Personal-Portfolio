@@ -1,0 +1,84 @@
+@use 'base/mixins' as m;
+@use 'base/global' as c;
+
+
+section{
+    margin-top: 10rem;
+    padding: 8rem 0;
+}
+
+.subtitle{
+    font-size: 6rem;
+    @include m.tablet(n){
+        font-size: 12rem;
+    }
+    @include m.laptop(n){
+        font-size: 14rem;
+    }
+}
+ .subtitle:nth-child(even){
+        text-align: end;
+}
+
+.content{
+    align-items: flex-end;
+    display: flex;
+    gap: 6rem;
+    flex-direction: column;
+
+}
+
+p.block{
+    transform: rotate(2deg);
+    border: solid 2px c.$black;
+    padding: 1rem 2rem;
+
+    @include m.tablet(n){
+        width: 50rem;
+    }
+}
+
+
+
+.block:nth-child(2){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    grid-auto-flow: dense;
+
+    @include m.tablet(n){
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    li:not(.white){
+        padding: 1rem;
+        background-color: c.$black;
+        color: c.$gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .white{
+        @include m.tablet(n){
+            padding: 4rem 3rem;
+        }
+    }
+}
+
+.skills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    marquee{
+        padding: 0;
+        text-align: center;
+        margin:0;
+    }
+
+}
+
+.chess-symbol{
+    font-size: 4rem;
+}
